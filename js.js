@@ -42,4 +42,21 @@ function sortearCarta(){
 
   cartaJogador = cartas[numeroCartaJogador];
   console.log(cartaJogador);
+
+document.getElementById("btnSortear").disabled = true; //depois que a função é executada, disabled = true
+
+document.getElementById("btnJogar").disabled = false; //depois que a função é executada, disabled = false
+
+exibirOpcoes(); //chamando a função depois de criá-la abaixo
+
 };
+
+function exibirOpcoes(){
+  var opcoes = document.getElementById("opcoes")
+  var opcoesTexto = ""
+
+  for(var atributo in cartaJogador.atributos){
+    opcoesTexto += "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo
+  }
+  opcoes.innerHTML = opcoesTexto
+}
