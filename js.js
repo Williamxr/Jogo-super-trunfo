@@ -26,7 +26,20 @@ var carta3 = {
 };
 
 var cartas = [carta1, carta2, carta3];
-var cartaBot = 0
-var cartaJogador = 0
+var cartaBot
+var cartaJogador
 
-console.log(cartas);
+function sortearCarta(){
+  var numeroCartaBot = parseInt(Math.random() * 3); //sorteando a carta
+  cartaBot = cartas[numeroCartaBot]; //a carta do meu jogador cartaBot será aleatóriamente alguma das 3 cartas(objetos) criadas
+  console.log(cartaBot);
+
+  var numeroCartaJogador= parseInt(Math.random() * 3);
+
+  while (numeroCartaBot == numeroCartaJogador){ //condição para que sempre haja um novo sorteio caso as cartas dos jogadores sejam as mesmas
+    var numeroCartaJogador= parseInt(Math.random() * 3);
+  }
+
+  cartaJogador = cartas[numeroCartaJogador];
+  console.log(cartaJogador);
+};
