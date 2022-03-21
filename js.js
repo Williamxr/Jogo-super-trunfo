@@ -60,3 +60,29 @@ function exibirOpcoes(){
   }
   opcoes.innerHTML = opcoesTexto
 }
+
+function obtemAtributoSelecionado(){
+  var radioAtributos = document.getElementsByName("atributo");
+
+  for(var i = 0; i < radioAtributos.length; i++){
+    if(radioAtributos[i].checked){
+      return radioAtributos[i].value
+    }
+  }
+}
+
+function jogar(){
+  var atributoSelecionado = obtemAtributoSelecionado()
+  var elementoResultado = document.getElementById("resultado")
+  var valorCartaJogador = cartaJogador.atributos[atributoSelecionado]
+  var valorCartaBot = cartaBot.atributos[atributoSelecionado]
+
+  if(valorCartaJogador > valorCartaBot){
+    elementoResultado.innerHTML = "Você venceu!"
+  }else if(valorCartaBot > valorCartaJogador){
+    elementoResultado.innerHTML = "Você perdeu, o atributo do Bot é maior!"
+  }else {
+    elementoResultado.innerHTML = "Empate!"
+  }
+  console.log(cartaBot);
+}
